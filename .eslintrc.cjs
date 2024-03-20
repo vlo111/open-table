@@ -13,9 +13,8 @@ module.exports = {
     'prettier',
   ],
   ignorePatterns: [
-      'dist',
-    '.eslintrc.cjs',
     'vite.config.ts',
+    '.eslintrc.cjs',
     '.github/**/*',
     '.vscode/**/*',
     'dist/**/*',
@@ -46,15 +45,19 @@ module.exports = {
     '**/*.pem',
     '**/*.md',
     '**/*.txt',
-    '**/*.snap',],
+    '**/*.snap',
+  ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
+    ecmaFeatures: {
+      jsx: true,
+    },
     sourceType: 'module',
-    project: ['tsconfig.json', 'tsconfig.node.json'],
+    project: ['tsconfig.json'],
     tsconfigRootDir: './',
   },
-  plugins: ['react-refresh', 'react', 'react-hooks', '@typescript-eslint', 'import', 'prettier'],
+  plugins: ['@typescript-eslint', 'import', 'jsx-a11y'],
   settings: {
     react: {
       version: 'detect',
@@ -78,20 +81,20 @@ module.exports = {
     },
   ],
   rules: {
+    'import/no-default-export': 'error',
     'react/react-in-jsx-scope': 'off',
     'react/display-name': 'off',
     'no-console': 'error',
     'no-debugger': 'error',
-    'import/names': 'off', // Not needed since TypeScript does this for us
-    'import/no-unresolved': 'off', // Not needed since TypeScript does this for us
-    'import/no-default-export': 'error', // Here's why this is a great rule: https://blog.neufund.org/why-we-have-banned-default-exports-and-you-should-do-the-same-d51fdc2cf2ad
-    'import/no-absolute-path': 'warn', // Unless we can add baseDir but that would break our storybook config
+    'import/names': 'off',
+    'import/no-unresolved': 'off',
+    'import/no-absolute-path': 'warn',
     '@typescript-eslint/interface-name-prefix': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-unused-vars': 'off',
-    '@typescript-eslint/no-explicit-any': 'error', // Prefer 'unknown' instead
-    'react/prop-types': 'off', // prop type rule should be ignored in TS repos
+    '@typescript-eslint/no-explicit-any': 'error',
+    'react/prop-types': 'off',
     'jsx-a11y/accessible-emoji': 'warn',
     'jsx-a11y/alt-text': 'warn',
     'jsx-a11y/anchor-has-content': 'warn',

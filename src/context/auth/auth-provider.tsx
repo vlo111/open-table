@@ -1,7 +1,7 @@
 import { useCallback, useState, useMemo } from "react";
 
 import { useLocalStorage } from "../../hooks/use-local-storage.ts";
-import { IUserDetails, IUser, AuthProviderProps } from "../../types/auth.ts";
+import { IUserDetails, IUser, AuthProviderProps } from "types/auth";
 
 import { AuthContext } from "./auth-context.ts";
 import { AUTH_KEYS } from "helpers/constants";

@@ -1,6 +1,6 @@
 import { PATHS } from "helpers/constants";
 import { useNavigate } from "react-router-dom";
-import MyTable from "assets/react.svg";
+import MyTable from "assets/logo.svg";
 import { Space } from "antd";
 
 type Props = {

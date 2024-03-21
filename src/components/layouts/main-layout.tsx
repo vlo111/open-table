@@ -97,13 +97,13 @@ export const MainLayout: FC<IMainLayout> = ({ children }) => {
       </Layout>
       <Flex justify="space-between" style={{ padding: "16px 0px" }}>
         <Text style={{ fontSize: 10 }}>
-          Ai•id DCMT. All Rights Reserved. 2024©
+          My Table. All Rights Reserved. 2024©
         </Text>
         <Text style={{ fontSize: 10, color: `${GRAY_100}` }}>
           If you need assistance or have any questions, feel free to reach out
           to our support team at
           <Text style={{ fontSize: 10, color: `${GRAY_300}` }}>
-            help@.aiid.info
+            help@.mytable.info
           </Text>
         </Text>
       </Flex>

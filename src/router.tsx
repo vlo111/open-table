@@ -1,5 +1,4 @@
 import { Outlet, createBrowserRouter } from 'react-router-dom';
-
 import { ErrorNotFound } from 'pages/errors/error-not-found.tsx';
 import { ErrorServer } from 'pages/errors/server-error.tsx';
 import { PATHS } from 'helpers/constants.ts';

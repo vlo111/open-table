@@ -1,11 +1,9 @@
 import { useCallback, useState, useMemo } from 'react';
-
 import { IUserDetails, IUser, AuthProviderProps } from 'types/auth';
 import { AUTH_KEYS } from 'helpers/constants';
+import { useLocalStorage } from 'hooks/use-local-storage';
 
-import { useLocalStorage } from '../../hooks/use-local-storage.ts';
-
-import { AuthContext } from './auth-context.ts';
+import { AuthContext } from './auth-context';
 
 const localStorageUser = localStorage.getItem(AUTH_KEYS.USER);
 

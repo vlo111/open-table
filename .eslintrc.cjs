@@ -57,7 +57,7 @@ module.exports = {
     project: ['tsconfig.json'],
     tsconfigRootDir: './',
   },
-  plugins: ['@typescript-eslint', 'import', 'jsx-a11y'],
+  plugins: ['@typescript-eslint', 'import', 'jsx-a11y', 'prettier'],
   settings: {
     react: {
       version: 'detect',
@@ -90,7 +90,6 @@ module.exports = {
     'import/no-unresolved': 'off',
     'import/no-absolute-path': 'warn',
     '@typescript-eslint/interface-name-prefix': 'off',
-    '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-unused-vars': 'off',
     '@typescript-eslint/no-explicit-any': 'error',
@@ -132,5 +131,27 @@ module.exports = {
     '@typescript-eslint/no-non-null-assertion': 'off',
     eqeqeq: ['error', 'always'],
     'react-hooks/exhaustive-deps': 'error',
+    'no-duplicate-imports': 'error',
+    'eol-last': 1,
+    'no-multiple-empty-lines': [
+      'error',
+      {
+        max: 1,
+        maxEOF: 0,
+      },
+    ],
+    '@typescript-eslint/restrict-plus-operands': 'error',
+    'no-trailing-spaces': 'error',
+    'prettier/prettier': 'error',
+    'import/order': [
+      'error',
+      {
+        groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
+        'newlines-between': 'always',
+      },
+    ],
+    '@typescript-eslint/explicit-function-return-type': 'error',
+    'react/jsx-one-expression-per-line': [0],
+
   },
 };

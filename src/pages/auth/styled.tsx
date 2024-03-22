@@ -1,6 +1,5 @@
 import { Flex } from 'antd';
 import styled from 'styled-components';
-
 import { COLORS } from 'helpers/constants';
 
 const { WHITE } = COLORS;

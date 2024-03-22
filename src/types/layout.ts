@@ -3,5 +3,5 @@ export interface IMainLayout {
   company?: boolean;
 }
 export interface ISpinner {
-  size?: "small" | "large" | "default" | undefined;
+  size?: 'small' | 'large' | 'default' | undefined;
 }

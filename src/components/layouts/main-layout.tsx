@@ -4,8 +4,7 @@ import styled from 'styled-components';
 import { FC } from 'react';
 import { COLORS, leftMenuItems } from 'helpers/constants';
 import { IMainLayout } from 'types/layout';
-
-import { Logo } from '../logo';
+import { Logo } from 'components/logo';
 
 const { Header, Content } = Layout;
 const { Title, Paragraph, Text } = Typography;

@@ -1,3 +1,4 @@
+import React from 'react';
 import { Space } from 'antd';
 
-export const ErrorNotFound = () => <Space>404 Not Found</Space>;
+export const ErrorNotFound: React.FC = () => <Space>404 Not Found</Space>;

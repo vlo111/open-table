@@ -3,6 +3,7 @@ import { MenuProps } from 'antd';
 export const PATHS = {
   ROOT: '/',
   SIGN_IN: '/sign-in',
+  SIGN_UP: '/sign-up',
   ERROR_SERVER: '/error/server',
   ERROR_NOT_FOUND: '/error/not-found',
 };
@@ -15,6 +16,7 @@ export const COLORS = {
   GRAY_200: '#9AA9B3',
   GRAY_100: '#EBF0F3',
   BG: '#F5F7F8',
+  WHITE: '#FFFFFF',
 };
 
 export const AUTH_KEYS = {

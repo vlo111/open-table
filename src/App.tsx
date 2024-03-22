@@ -15,7 +15,7 @@ const queryClient = new QueryClient({
   },
 });
 
-export const App = () => (
+export const App: React.FC = () => (
   <ConfigProvider theme={antTheme}>
     <AuthProvider>
       <QueryClientProvider client={queryClient}>

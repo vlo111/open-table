@@ -1,103 +1,43 @@
-import { Layout, Flex, Typography, Menu as MenuComponent } from 'antd';
-import { useNavigate, useLocation } from 'react-router-dom';
-import styled from 'styled-components';
+import { Col, Flex, Layout, Row, Space } from 'antd';
 import { FC } from 'react';
-import { COLORS, leftMenuItems } from 'helpers/constants';
+import { COLORS } from 'helpers/constants';
 import { IMainLayout } from 'types/layout';
-import { Logo } from 'components/logo';
+import { Button } from 'components/button';
+import { Text, SecondaryText } from 'components/typhography/text';
 
-const { Header, Content } = Layout;
-const { Title, Paragraph, Text } = Typography;
-const { BG, GRAY_100, GRAY_300, GRAY_200 } = COLORS;
+import { Logo } from '../logo';
 
-const Menu = styled(MenuComponent)`
-  &.head_menu {
-    .ant-menu-item {
-      border-radius: 32px;
-      margin-right: 8px;
-      font-weight: 500;
-    }
-    &.ant-menu-horizontal {
-      line-height: 32px;
-      width: 268px;
-    }
-    &.ant-menu-light.ant-menu-horizontal > .ant-menu-item::after {
-      border-bottom: 0px;
-    }
-  }
+const { Header } = Layout;
+const { BG } = COLORS;
 
-  &.left_menu {
-    height: 95%;
-
-    .ant-menu-item:last-child {
-      position: absolute;
-      bottom: 20px;
-    }
-  }
-`;
-
-const Sider = styled(Layout.Sider)`
-  &.ant-layout-sider {
-    background: ${GRAY_200};
-    margin-right: 8px;
-    padding: 32px 16px;
-    border-radius: 8px;
-  }
-  .ant-layout-sider-children {
-    position: relative;
-  }
-`;
+const fullHeight = { height: '100%' };
 
 export const MainLayout: FC<IMainLayout> = ({ children }) => {
-  const navigate = useNavigate();
-  const { pathname } = useLocation();
-
-  const handleTopMenuChange = (info: { key: string }): void => {
-    const { key } = info;
-    navigate(key);
-  };
-
   return (
-    <Layout style={{ height: '100%', background: BG, minHeight: '100vh' }}>
-      <Header style={{ margin: '16px 0px' }}>
-        <Flex align='center' justify='space-between'>
-          <Flex align='center' gap={24}>
-            <Logo />
-            <Title level={3} style={{ marginBottom: 0, textAlign: 'center' }}>
-              User Name
-            </Title>
-          </Flex>
-          <Flex align='center' gap={24}>
-            Profile
-          </Flex>
-        </Flex>
+    <Layout style={{ background: BG, padding: '0 3rem' }}>
+      <Header style={{ height: '7.5rem', margin: '24px 0 8px' }}>
+        <Row style={{ ...fullHeight }}>
+          <Col span={4}>
+            <Flex vertical justify='space-between' style={{ ...fullHeight }}>
+              <Logo />
+              <SecondaryText style={{ fontSize: '16px' }}>Home</SecondaryText>
+            </Flex>
+          </Col>
+          <Col offset={14} span={6}>
+            <Flex justify='space-between' style={{ ...fullHeight }}>
+              <Button type='primary' text={'Login'} />
+              <Button type='default' text={'Register'} />
+              <SecondaryText style={{ fontSize: '16px' }}>Home</SecondaryText>
+            </Flex>
+          </Col>
+        </Row>
       </Header>
-      <Layout style={{ height: '100%' }} hasSider>
-        <Sider width={'30%'} breakpoint='lg'>
-          <Paragraph style={{ fontSize: 16, fontWeight: 500 }}>Profile menu</Paragraph>
-          <Menu
-            items={leftMenuItems}
-            className='left_menu'
-            onSelect={(info): void => handleTopMenuChange(info)}
-            selectedKeys={[pathname]}
-          />
-        </Sider>
-        <Content
-          style={{
-            background: `${GRAY_100}`,
-            borderRadius: 8,
-            padding: '32px 16px',
-            position: 'relative',
-          }}
-        >
-          {children}
-        </Content>
-      </Layout>
+      <Space style={{ height: 'calc(100vh - 12.5rem)' }}>{children}</Space>
       <Flex justify='space-between' style={{ padding: '16px 0px' }}>
         <Text style={{ fontSize: 10 }}>My Table. All Rights Reserved. 2024©</Text>
-        <Text style={{ fontSize: 10, color: `${GRAY_100}` }}>
+        <Text style={{ fontSize: 10, color: `${COLORS.GRAY_100}` }}>
           If you need assistance or have any questions, feel free to reach out to our support team at
-          <Text style={{ fontSize: 10, color: `${GRAY_300}` }}>help@.mytable.info</Text>
+          <Text style={{ fontSize: 10, color: `${COLORS.GRAY_300}` }}>help@.mytable.info</Text>
         </Text>
       </Flex>
     </Layout>

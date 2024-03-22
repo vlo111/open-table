@@ -39,3 +39,12 @@ export const leftMenuItems: MenuProps['items'] = [
     key: PATHS.ROOT,
   },
 ];
+
+export const SCREEN_SIZE = {
+  xs: '480px',
+  sm: '576px',
+  md: '768px',
+  lg: '992px',
+  xl: '1200px',
+  xxl: '1600px',
+};

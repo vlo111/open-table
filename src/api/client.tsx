@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
-import axios, { InternalAxiosRequestConfig } from "axios";
-import { AUTH_KEYS, PATHS } from "helpers/constants";
+import axios, { InternalAxiosRequestConfig } from 'axios';
+import { AUTH_KEYS, PATHS } from 'helpers/constants';
 
 interface RefreshTokenResponse {
   data: {
@@ -15,7 +15,7 @@ const client = axios.create({
 
 client.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem(AUTH_KEYS.TOKEN) || "";
+    const token = localStorage.getItem(AUTH_KEYS.TOKEN) || '';
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
@@ -40,23 +40,17 @@ client.interceptors.response.use(
       const originalRequest = error.config;
 
       try {
-        const req = await axios.post<RefreshTokenResponse>(
-          import.meta.env.VITE_BASE_URL + "api/auth/access-token",
-          {
-            token: access_token,
-          },
-        );
+        const req = await axios.post<RefreshTokenResponse>(import.meta.env.VITE_BASE_URL + 'api/auth/access-token', {
+          token: access_token,
+        });
 
         localStorage.setItem(AUTH_KEYS.TOKEN, req?.data?.data?.accessToken);
-        localStorage.setItem(
-          AUTH_KEYS.REFRESH_TOKEN,
-          req?.data?.data?.refreshToken,
-        );
+        localStorage.setItem(AUTH_KEYS.REFRESH_TOKEN, req?.data?.data?.refreshToken);
 
         originalRequest.headers.Authorization = `Bearer ${req?.data?.data?.accessToken}`;
         return axios(originalRequest);
       } catch (postError) {
-        console.error("Error fetching access token:", postError);
+        console.error('Error fetching access token:', postError);
       }
     }
     // 401 status code log out
@@ -65,12 +59,10 @@ client.interceptors.response.use(
       localStorage.removeItem(AUTH_KEYS.TOKEN);
       localStorage.removeItem(AUTH_KEYS.REFRESH_TOKEN);
       window.location.href = PATHS.SIGN_IN;
-      await axios.post(import.meta.env.VITE_BASE_URL + "api/auth/logout");
+      await axios.post(import.meta.env.VITE_BASE_URL + 'api/auth/logout');
     }
 
-    return Promise.reject(
-      error?.response?.data?.message || error?.response?.data?.errors,
-    );
+    return Promise.reject(error?.response?.data?.message || error?.response?.data?.errors);
   },
 );
 

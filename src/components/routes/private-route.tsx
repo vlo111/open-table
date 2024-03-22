@@ -1,8 +1,7 @@
-import { Navigate, Outlet } from "react-router-dom";
-
-import { PATHS } from "helpers/constants";
-import { useAuth } from "../../hooks/use-auth.ts";
-import { MainLayout } from "../layouts/main-layout.tsx";
+import { Navigate, Outlet } from 'react-router-dom';
+import { PATHS } from 'helpers/constants';
+import { useAuth } from 'hooks/use-auth';
+import { MainLayout } from 'components/layouts/main-layout';
 
 export const PrivateRoute = () => {
   const { user } = useAuth();

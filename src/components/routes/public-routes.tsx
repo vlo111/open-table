@@ -1,4 +1,4 @@
-import { MainLayout } from "components/layouts/main-layout";
+import { MainLayout } from 'components/layouts/main-layout';
 
 export const PublicRoutes = () => {
   return (

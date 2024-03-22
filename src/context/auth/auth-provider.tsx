@@ -1,10 +1,9 @@
-import { useCallback, useState, useMemo } from "react";
+import { useCallback, useState, useMemo } from 'react';
+import { IUserDetails, IUser, AuthProviderProps } from 'types/auth';
+import { AUTH_KEYS } from 'helpers/constants';
+import { useLocalStorage } from 'hooks/use-local-storage';
 
-import { useLocalStorage } from "../../hooks/use-local-storage.ts";
-import { IUserDetails, IUser, AuthProviderProps } from "types/auth";
-
-import { AuthContext } from "./auth-context.ts";
-import { AUTH_KEYS } from "helpers/constants";
+import { AuthContext } from './auth-context';
 
 const localStorageUser = localStorage.getItem(AUTH_KEYS.USER);
 
@@ -24,14 +23,14 @@ export const AuthProvider = (props: AuthProviderProps): JSX.Element => {
 
   const addToken = useCallback(
     (token?: string | null) => {
-      setItem(AUTH_KEYS.TOKEN, token || "");
+      setItem(AUTH_KEYS.TOKEN, token || '');
     },
     [setItem],
   );
 
   const addRefreshToken = useCallback(
     (r_token?: string | null) => {
-      setItem(AUTH_KEYS.REFRESH_TOKEN, r_token || "");
+      setItem(AUTH_KEYS.REFRESH_TOKEN, r_token || '');
     },
     [setItem],
   );
@@ -56,9 +55,6 @@ export const AuthProvider = (props: AuthProviderProps): JSX.Element => {
     removeUser();
   }, [removeUser]);
 
-  const providerValues = useMemo(
-    () => ({ user, login, logout, addUser, setUser }),
-    [addUser, login, logout, user],
-  );
+  const providerValues = useMemo(() => ({ user, login, logout, addUser, setUser }), [addUser, login, logout, user]);
   return <AuthContext.Provider value={providerValues} {...props} />;
 };

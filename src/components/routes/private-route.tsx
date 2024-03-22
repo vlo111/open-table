@@ -1,10 +1,11 @@
-import { Navigate, Outlet } from "react-router-dom";
+import { Navigate, Outlet } from 'react-router-dom';
 
-import { PATHS } from "helpers/constants";
-import { useAuth } from "../../hooks/use-auth.ts";
-import { MainLayout } from "../layouts/main-layout.tsx";
+import { PATHS } from 'helpers/constants';
 
-export const PrivateRoute = () => {
+import { useAuth } from '../../hooks/use-auth.ts';
+import { MainLayout } from '../layouts/main-layout.tsx';
+
+export const PrivateRoute: React.FC = () => {
   const { user } = useAuth();
 
   if (!user) {

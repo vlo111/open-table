@@ -1,4 +1,4 @@
-import { TLocalStorage } from "../types/auth.ts";
+import { TLocalStorage } from '../types/auth.ts';
 
 export const useLocalStorage: TLocalStorage = () => {
   const setItem = (key: string, value: string): void => {

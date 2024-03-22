@@ -1,11 +1,12 @@
-import { router } from "./router";
-import { RouterProvider } from "react-router-dom";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ConfigProvider } from "antd";
+import { RouterProvider } from 'react-router-dom';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ConfigProvider } from 'antd';
 
-import "./index.css";
-import { antTheme } from "helpers/ant-theme";
-import { AuthProvider } from "./context/auth/auth-provider.tsx";
+import './index.css';
+import { antTheme } from 'helpers/ant-theme';
+
+import { router } from './router';
+import { AuthProvider } from './context/auth/auth-provider.tsx';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -15,7 +16,7 @@ const queryClient = new QueryClient({
   },
 });
 
-export const App = () => (
+export const App: React.FC = () => (
   <ConfigProvider theme={antTheme}>
     <AuthProvider>
       <QueryClientProvider client={queryClient}>

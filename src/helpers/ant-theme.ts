@@ -1,4 +1,4 @@
-import { COLORS } from "helpers/constants";
+import { COLORS } from 'helpers/constants';
 
 const { MAIN_MAROON, GRAY_100, GRAY_200, GRAY_300, GRAY, DARK_GRAY } = COLORS;
 
@@ -50,13 +50,13 @@ export const antTheme = {
       fontSize: 12,
     },
     Layout: {
-      headerBg: "transparent",
-      bodyBg: "transparent",
+      headerBg: 'transparent',
+      bodyBg: 'transparent',
       headerPadding: 0,
     },
     Menu: {
-      colorBgContainer: "transparent",
-      colorSplit: "none",
+      colorBgContainer: 'transparent',
+      colorSplit: 'none',
       horizontalItemSelectedColor: GRAY_300,
       horizontalItemSelectedBg: GRAY_100,
       horizontalItemHoverBg: GRAY_100,
@@ -83,21 +83,21 @@ export const antTheme = {
       colorSplit: GRAY_300,
     },
     Table: {
-      headerBg: "#F1F5F9",
+      headerBg: '#F1F5F9',
       headerBorderRadius: 1,
-      borderColor: "#F0F0F0",
-      headerSortHoverBg: "#e7ebf1",
-      bodySortBg: "#f5f9fd",
-      headerSortActiveBg: "#e3e8ed",
+      borderColor: '#F0F0F0',
+      headerSortHoverBg: '#e7ebf1',
+      bodySortBg: '#f5f9fd',
+      headerSortActiveBg: '#e3e8ed',
     },
   },
   token: {
-    colorError: "#cf000f",
-    colorErrorBorder: "#F3BFC3",
-    colorSuccess: "#5aca75",
+    colorError: '#cf000f',
+    colorErrorBorder: '#F3BFC3',
+    colorSuccess: '#5aca75',
     colorPrimary: MAIN_MAROON,
     borderRadius: 4,
-    fontFamily: "Arial",
+    fontFamily: 'Arial',
     fontSize: 20,
     fontSizeLG: 20,
     fontSizeSM: 15,

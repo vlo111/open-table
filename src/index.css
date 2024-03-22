@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+  font-family: 'Arial, sans-serif', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  height: 100%;
+}
+
+::-webkit-scrollbar {
+  padding: 0px 4px;
+  width: 2px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #c1c1c1;
+  border-radius: 99px;
+}

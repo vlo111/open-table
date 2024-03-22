@@ -1,5 +1,4 @@
 import { Layout } from 'antd';
-
 import { IMainLayout } from 'types/layout';
 
 import { Logo } from '../logo';
